@@ -1,0 +1,380 @@
+.intro {
+  position: relative;
+  z-index: 1;
+}
+
+.large-carousel {
+  color: var(--white);
+  position: relative;
+
+  &__buttons {
+    position: absolute;
+    left: 0;
+    @mixin center y;
+    padding-inline: 1em;
+    z-index: 10;
+
+    @mixin at Medium { padding-inline: 3em }
+
+    button {
+      width: 30px; height: 30px;
+      color: var(--white);
+      user-select: none;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+      outline: none;
+
+      
+      &:first-child { 
+        margin-bottom: 2rem;
+        &:active { transform: translateY(-1px) }
+      }
+
+      &:last-child { 
+        &:active { transform: translateY(1px) }
+      }
+
+      svg { 
+        fill: #fff;
+        transition: all 150ms ease;
+      }
+
+      &::after {
+        content: '';
+        display: block;
+        width: 100%; height: 0;
+        position: absolute;
+        left: 0; bottom: 0;
+        background: white;
+        z-index: -1;
+        transition: all 150ms ease;
+      }
+
+      &:focus, &:hover {
+        svg { fill: #333 }
+
+        &::after {
+          height: 100%;
+          top: 0;
+        }
+      }
+
+      &.is-disabled {
+        pointer-events: none;
+        svg {fill: hsla(0, 0%, 100%, 0.4)}
+
+        &:focus, &:hover {
+          &::after {
+            height: 0;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  
+  &__track {
+    max-height: 600px;
+    height: 100vh;
+    @mixin at Medium { max-height: 700px }
+    overflow: hidden;
+  }
+
+  &__slide {
+    max-height: 0;
+    height: 0;
+    @mixin at Medium { max-height: 0 }
+    opacity: 0;
+    transition: all 600ms cubic-bezier(1, 0.01, 0.25, 0.88); /* opacity 1000ms ease-in-out */
+
+    background: #fff;
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-drag: none;
+    position: relative;
+
+    &.current-slide {
+      max-height: 600px;
+      height: 100vh;
+      @mixin at Medium { max-height: 700px }
+      opacity: 1;
+      
+      .slide__details {
+        opacity: 1;
+        max-height: 700px;
+      }
+
+      .slide__image {
+        img { 
+          opacity: 1;
+          transform: scale(1);
+        }
+        
+        &::after { opacity: 1 }
+      }
+    }
+
+    .slide__image {
+      position: absolute;
+      bottom: -35px;
+      
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0; right: 0;
+        top: 0; bottom: 0;
+        background: hsla(240, 95%, 10%, 0.3);
+        opacity: 0;
+        transition: opacity 6200ms cubic-bezier(0, 1.37, 0.15, 0.99);
+      }
+
+      img {
+        opacity: 0;
+        transform: scale(1.05);
+        transition: opacity 15000ms cubic-bezier(0, 1.37, 0.15, 0.99), transform 1500ms ease-in-out;
+        height: 100%;
+        object-fit: cover;
+
+      }
+    }
+
+    .slide__details {
+      opacity: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 600ms ease-in-out;
+
+      &__wrapper {
+        max-width: 44rem;
+        margin-inline-start: 7rem;
+        margin-inline-end: 6rem;
+        @mixin at Small { 
+          margin-inline-start: 12rem;
+          margin-inline-end: 12rem;
+        }
+        @media (min-width: 918px) { 
+          margin-inline-start: 22rem;
+          margin-inline-end: 22rem;
+        }
+      }
+
+      @mixin center y;
+    }
+
+    .slide__subtitle {
+      @mixin font-size 1.1;
+      @mixin at Medium { @mixin font-size 1.25 }
+      font-weight: 500;
+      letter-spacing: .05em;
+      color: hsla(0, 0%, 100%, .8);
+    }
+
+    .slide__title {
+      @mixin font-size 2;
+      @mixin at Medium { @mixin font-size 4 }
+      font-family: var(--secondary-font);
+      font-weight: normal;
+      line-height: 1.45;
+      letter-spacing: -.02em;
+      margin: 2rem 0 2rem; 
+      @mixin at Small { margin: 3.1rem 0 2.4rem}
+    }
+
+    .slide__overview {
+      line-height: 1.7;
+      @mixin font-size 1.1;
+
+      @mixin at Small {
+        line-height: 1.8;
+        @mixin font-size 1.2;
+      }
+
+      @mixin at Medium { @mixin font-size 1.35 }
+      font-weight: 500;
+      color: hsla(0, 0%, 100%, .8);
+    }
+  }
+
+  
+  &__navigation {
+    position: absolute;
+    right: 0; bottom: 0;
+    box-shadow: 0 5px 40px rgba(0,0,0,.045);
+    width: 100%;
+    @mixin at Medium { width: auto }
+
+    li {
+      @mixin at Medium { @mixin max-width 25.4 }
+      
+      a {
+        display: block;
+        background: var(--white);
+        color: #757388;
+        padding: .5em 1em;
+        @mixin at Medium { padding: 2.3em 2.5em }
+        position: relative;
+        transition: all 200ms ease-in-out;
+        
+        > * {
+          position: relative;
+          z-index: 1;
+        }
+
+        @mixin at xSmall {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        p { 
+          line-height: 1.4;
+          display: inline;
+          @mixin at Medium { display: block }
+
+          &:first-of-type { 
+            @mixin at Medium { border-bottom: 2px solid }
+            margin: 0 .8rem 1.3rem 0;
+            font-weight: 500;
+            @mixin font-size 1.2;
+
+            @mixin at Medium { 
+              border-bottom: 0;
+              margin-bottom: 1.3rem;
+            }
+          }
+          
+          &:last-of-type { 
+            margin-bottom: 0;
+            font-weight: 700;
+            @mixin font-size 1.2;
+            @mixin at Small { @mixin font-size 1.4 }
+          }
+        }
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%; height: 0;
+          position: absolute;
+          left: 0; bottom: 0;
+          background: #efefef;
+          transition: all 300ms ease-in-out;
+        }
+        
+        &:hover {
+          &::after {
+            height: 100%;
+            top: 0;
+          }
+        }
+      }
+
+      &:active { transform: translateY(2px) }
+      
+      &.current-slide {
+        a { 
+          color: #000139;
+
+          &::after {
+            height: 100%;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+
+  &__scroll-down {
+    display: none;
+    @mixin at Medium { display: block }
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    box-shadow: 0 5px 40px rgba(0,0,0,.045);
+
+    a {
+      display: block;
+      padding: 2.6em 3.7em;
+      background: var(--white);
+      color: #000139;
+      font-weight: 700;
+      @mixin font-size 1.2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: box-shadow 200ms cubic-bezier(0, 1.04, 0, -0.42);
+      
+      &:focus, &:hover {
+        outline: none;
+        box-shadow: inset 0 0 0 4px hsla(239, 100%, 11%, .2);
+      }
+
+      .icon {
+        width: 28px;
+        height: 28px;
+        border: .2rem solid;
+        border-radius: 50%;
+        margin-left: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left-color: #e1e1e1;
+        transform: rotate(45deg);
+
+        svg { transform: rotate(-45deg) }
+      }
+    }
+  }
+
+  &__social {
+    position: absolute;
+    right: 0;
+    @mixin center y;
+    padding-inline: 1em;
+    @mixin at Medium { padding-inline: 3em }
+
+    span {
+      height: 90px; width: 1px;
+      background: var(--white);
+      margin-bottom: 2.8rem;
+    }
+
+    li {
+      &:not(:last-child) {
+        margin-bottom: 1.6rem;
+      }
+
+      a {
+        @mixin font-size 1.1;
+        display: block;
+        width: 25px; height: 25px;
+        line-height: 25px;
+        position: relative;
+        transition: all 200ms ease-in-out;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 100%; height: 0;
+          position: absolute;
+          left: 0; bottom: 0;
+          background: white;
+          z-index: -1;
+          transition: all 200ms ease-in-out;
+        }
+
+        &:hover {
+          color: #333;
+
+          &::after {
+            height: 100%;
+            top: 0;
+          }
+        }
+      }
+    }
+  }
+}

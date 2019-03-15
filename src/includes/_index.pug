@@ -1,0 +1,298 @@
+main.site-content
+  section.intro
+    .large-carousel 
+      .large-carousel__inner
+        //- Carousel Buttons
+        .large-carousel__buttons
+          button.button--plain.display-block.jsCarouselNextButton
+            span.visually-hidden Next Slide
+            svg(width='13', height='13', viewBox='0 0 512 512')
+              use(xlink:href='#chevron-up') 
+          button.button--plain.display-block.jsCarouselPrevButton.is-disabled
+            span.visually-hidden Previous Slide
+            svg(width='13', height='13', viewBox='0 0 512 512')
+              use(xlink:href='#chevron-down') 
+        //- Carousel Track
+        .large-carousel__track.jsCarouselTrack
+          .large-carousel__slide.current-slide
+            .large-carousel__slide__inner
+              .slide__image
+                img(src="assets/images/bg-1.jpg", alt="")
+              .slide__details
+                .slide__details__wrapper
+                  h3.slide__subtitle.to-uppercase Luxury Architecture
+                  h2.slide__title Our Commitement to Excellence Ensures Your peach of Mind.
+                  p.slide__overview Founded in Copenhagen with offices worldwide, Hanning Larsen is a studio made up of a highly specialized team of architects, designers, engineers.
+          .large-carousel__slide
+            .large-carousel__slide__inner
+              .slide__image
+                img(src="assets/images/bg-3.jpeg", alt="")
+              .slide__details
+                .slide__details__wrapper
+                  h3.slide__subtitle.to-uppercase Luxury Architecture
+                  h2.slide__title Our Commitement to Excellence Ensures Your peach of Mind.
+                  p.slide__overview Founded in Copenhagen with offices worldwide, Hanning Larsen is a studio made up of a highly specialized team of architects, designers, engineers.
+                    
+        .large-carousel__navigation
+          ul.list.list--inline-atMedium.list--no-bullets.list--no-inline-gutters.jsCarouselNavigation
+            li.current-slide
+              a(href="#")
+                p 01
+                p Jacques Majorelle over almost forty years
+            li
+              a(href="#")
+                p 02
+                p Luxury homes situated in Campoamor
+        //- Scroll Down Button
+        .large-carousel__scroll-down 
+          a(href="#transactions")
+            span Scroll Down
+            .icon
+              svg(width='9', height='9', viewBox='0 0 512 512')
+                use(xlink:href='#chevron-down') 
+        //- Social Bar
+        .large-carousel__social
+          span.m-auto--inline
+          ul.list.list--no-bullets.align-center
+            li
+              a(href="#") FB
+            li
+              a(href="#") TW
+            li
+              a(href="#") IN
+
+  section.page-section.sneak-peeks
+    .container.container--narrow.clearfix
+      h2.page-section__title Sneak peek: The First Steps into Our New Office
+      .tabs
+        .tabs__wrapper
+          .tabs__track.noJsFallback
+            .tab.current-tab
+              .block
+                h3.to-uppercase.no-m-top 1 Owener's Policies
+                p An Owner's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage. The liability limit if the owner's policy is typically the purchase price paid for the property.
+              .block
+                h3.to-uppercase.no-m-top Lender's Policies
+                p A Lender's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage. The liability limit if the owner's policy is typically the purchase price paid for the property.
+            .tab
+              .block
+                h3.to-uppercase.no-m-top 2 Owener's Policies
+                p An Owner's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage. The liability limit if the owner's policy is typically the purchase price paid for the property.
+              .block
+                h3.to-uppercase.no-m-top Lender's Policies
+                p A Lender's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage. The liability limit if the owner's policy is typically the purchase price paid for the property.
+            .tab
+              .block
+                h3.to-uppercase.no-m-top 3 Owener's Policies
+                p An Owner's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage.
+              .block
+                h3.to-uppercase.no-m-top Lender's Policies
+                p A Lender's Policy insures a purchaser of real property that the title to the property is vested in that purchaser and that the property is free from all defects, liens and encumbrances exept those listed as exceptions in the policy or are excluded from the scope of the policy's coverage. The liability limit if the owner's policy is typically.
+                        
+        .tabs__navigation
+          ul.list.list--inline.list--no-bullets
+            li(tabindex="0" class="current-tab") 01
+            li(tabindex="0") 02
+            li(tabindex="0") 03
+      .bg.display-none--atMedium
+        div
+
+  section.page-section.transactions#transactions
+    .container.container--narrow
+      .page-section__head
+        h2.page-section__title.no-m-block Illustrative Transactions
+        .carousel__navigation
+          button.carousel__button.jsCarouselPrevButton.button--plain.is-disabled
+            span.visually-hidden Previous Transactions
+            div.carousel__button__graphic
+          button.carousel__button.jsCarouselNextButton.button--plain
+            span.visually-hidden Next Transactions
+            div.carousel__button__graphic
+          
+    .container
+      .transactions__inner
+        .carousel
+          .carousel__track.jsCarouselTrack
+            .item.current-item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-1.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Mack Architecture
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $110,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-2.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title SAOTA Architects
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $450,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-3.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Oslo Studio Lund Hagem
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $750,000                
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-1.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Mack Architecture
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $110,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-2.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title SAOTA Architects
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $450,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-3.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Mack Architecture
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $750,000   
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-1.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Oslo Studio Lund Hagem
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $110,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-2.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title SAOTA Architects
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $450,000
+            .item
+              .item__inner
+                .item__image
+                  img(src="assets/images/trans-3.jpeg", alt="Item Image")
+                .item__details
+                  a(href="#")
+                    h4.item__title Oslo Studio Lund Hagem
+                    p.item__overview Whether a refinance of a single family home in one of these states, or a complicated.
+                    p.item__price $750,000                                   
+  
+  section.page-section.about
+    .container
+      .carousel
+        .carousel__buttons
+            button.button--plain.jsCarouselNextButton
+              span.visually-hidden Next Slide
+            button.button--plain.jsCarouselPrevButton.is-disabled
+              span.visually-hidden Previous Slide
+        .carousel__wrapper
+          .carousel__track.jsCarouselTrack
+            .carousel__slide.current-slide
+              .carousel__slide__inner
+                .block 
+                  span.slide__counter 01
+                  p.slide__overview Luxury House in Boston
+                .block 
+                  h2.slide__title.page-section__title.no-m-top Madison Broadway is the only title company you will need for doing business in the NY.NJ and PA Tristate
+                  p.slide__description Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam! Fuga minima maiores corrupti quas dignissimos ea vel. Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam.
+
+            .carousel__slide
+              .carousel__slide__inner
+                .block 
+                  span.slide__counter 02
+                  p.slide__overview Beauty of Newzeland
+                .block 
+                  h2.slide__title.page-section__title.no-m-top Madison Broadway is the only title company you will need for doing business in the NY.NJ and PA Tristate
+                  p.slide__description Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam! Fuga minima maiores corrupti quas dignissimos ea vel. Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam.
+            
+            .carousel__slide
+              .carousel__slide__inner
+                .block 
+                  span.slide__counter 03
+                  p.slide__overview Lorem, ipsum dolor.
+                .block 
+                  h2.slide__title.page-section__title.no-m-top Madison Broadway is the only title company you will need for doing business in the NY.NJ and PA Tristate
+                  p.slide__description Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam! Fuga minima maiores corrupti quas dignissimos ea vel. Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam.
+
+            .carousel__slide
+              .carousel__slide__inner
+                .block 
+                  span.slide__counter 04
+                  p.slide__overview Lorem, ipsum dolor.
+                .block 
+                  h2.slide__title.page-section__title.no-m-top Madison Broadway is the only title company you will need for doing business in the NY.NJ and PA Tristate
+                  p.slide__description Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam! Fuga minima maiores corrupti quas dignissimos ea vel. Or a comlicated financed purchase of multiple commercial building, Madison Broadway Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum quae fuga laboriosam.
+
+  section.outro
+    .outro__bg
+      img(src="assets/images/bg-2.jpeg", class="display-none--atMedium", alt="Outro")
+    .outro__content
+      .container.container--narrow
+        .outro__content__inner
+          .partners.align-center
+            .partners__wrapper
+              h2.page-section__title.no-m-top Proud partner of:
+              .carousel
+                .carousel__wrapper
+                  .carousel__button.carousel__button--prev
+                    button.button--plain.jsCarouselPrevButton.is-disabled
+                      svg(width='15', height='15', viewBox='0 0 512 512')
+                        use(xlink:href='#arrow-left')
+                  .carousel__track-outer 
+                    .carousel__track.jsCarouselTrack
+                      .carousel__slide.current-slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 1
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 2
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 3
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 4
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 5
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 6
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 7
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 8
+                      .carousel__slide
+                        span.display-block.partners__partner-title.to-uppercase Red Queen Space 9
+                                                    
+                  .carousel__button.carousel__button--next
+                    button.button--plain.jsCarouselNextButton
+                      svg(width='15', height='15', viewBox='0 0 512 512')
+                        use(xlink:href='#arrow-right')
+
+                .carousel__navigation
+                  ul.list.list--no-bullets.list--no-inline-gutters.jsCarouselNavigation
+
+
+          .subscribe.align-center
+            .subscribe__wrapper
+              h2.page-section__title.no-m-top Stay in touch
+              form.subscribe__form
+                label(for="email" class="visually-hidden") Enter your email address
+                input(type="email" placeholder="Enter your email address")
+                button(type="submit" id="email" class="subscribe__form__button button button--outline") 
+                  span.to-uppercase Subscribe
+                  svg(width='23', height='23', viewBox='0 0 100 100')
+                    use(xlink:href='#mail-svg')

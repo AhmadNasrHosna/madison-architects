@@ -1,0 +1,17 @@
+body {
+  font-family: var(--primary-font);
+  @mixin font-size 1.6;
+  line-height: 1.6;
+  background: var(--white);
+  color: var(--grey);
+  
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+/* @supports (font-variation-settings: normal) {
+  body {
+    font-family: "Inter var", system-ui, sans-serif;
+  }
+}
+*/

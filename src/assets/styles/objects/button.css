@@ -1,0 +1,79 @@
+.button {
+  display: inline-block;
+  height: 4.7rem;
+  @mixin line-height 4.4;
+  padding-inline: 2.25em;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  background: transparent;
+
+  &:focus {
+    outline: none;
+    transform: translate(1px, 1px);
+    box-shadow: none;
+  }
+  &--plain {
+    background: transparent;
+    border: 0;
+    line-height: 1;
+    padding: 0;
+    box-shadow: none;
+  }
+  &--primary {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-color: var(--primary-color);
+  }
+  
+  &--secondary {
+    background-color: var(--black);
+    color: var(--white);
+    border-color: var(--black);
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid #f1f1f1;
+    color: #b9babe;
+    transition: all 200ms ease-in-out, transform 0ms ease;
+    
+    &:hover {
+      box-shadow: 0 3px 8px hsla(0, 0%, 47%, 0.1);
+      background: #f6f6f6;
+    }
+  }
+  
+  &--block { width: 100% }
+
+  &--block-only-small {
+    width: 100%;
+    @mixin at Small { width: auto }
+  }
+
+  &--block-center {
+    display: block;
+    margin-inline: auto;
+  }
+
+
+  &--large-p-inline {
+    padding-inline: 2.5em;
+
+    @mixin at Small {
+      padding-inline: 5.2em;
+    }
+  }
+
+  &--font-w-100 { font-weight: 100 }
+  &--font-w-200 { font-weight: 200 }
+  &--font-w-300 { font-weight: 300 }
+  &--font-w-400 { font-weight: 400 }
+  &--font-w-500 { font-weight: 500 }
+  &--font-w-600 { font-weight: 600 }
+  &--font-w-700 { font-weight: 700 }
+  &--font-w-800 { font-weight: 800 }
+  &--font-w-900 { font-weight: 900 }
+
+}

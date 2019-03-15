@@ -1,0 +1,70 @@
+.list {
+  margin: 0;
+  padding: 0;
+
+  &--inline {
+    @supports (display: flex) { display: flex }
+    li {
+      display: inline-block;
+      @supports (display: flex) { display: list-item }
+    }
+  }
+
+
+  &--inline-atSmall {
+    @mixin at Small {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  &--inline-atMedium {
+    @mixin at Medium {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  &--inline-atLarge {
+    @mixin at Large {
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  &--pipe-separator {
+    li + li {
+      &::before {
+        content: "|";
+        margin-inline: 10px;
+      }
+    }
+  }
+
+  &--no-bullets { /* Remove li Bullets with zero-width space for accessability stuff */
+    li {
+      list-style-type: none;
+      
+      &::before { /* remove bullets */
+        content: "\200B"; /* add zero-width space */
+        clip: rect(0 0 0 0);
+        height: 1px; width: 1px;
+        position: absolute;
+      }
+    }
+  }
+
+  /* TODO */ /* Change class name to  --no-gutters*/
+  &--no-inline-gutters { 
+    font-size: 0; /* Remove spaces between li items */
+
+    li { font-size: initial }
+  }
+
+}
+
+
+

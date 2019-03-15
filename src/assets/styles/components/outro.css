@@ -1,0 +1,230 @@
+.outro {
+  position: relative;
+  margin-bottom: 6rem;
+
+  .page-section__title { font-weight: normal }
+  
+  &__bg {
+    height: 400px;
+    
+    @mixin at Small { height: 500px }
+
+    @mixin at Medium {
+      height: 700px;
+    }
+
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__content {
+    position: absolute;
+    width: 100%;
+    
+    bottom: -4.2rem;
+    @mixin at Medium { bottom: -10.2rem }
+    @media (min-width: 860px) { bottom: -5.2rem }
+
+    &__inner {
+
+      > * + * { margin-top: 2rem }
+      
+      @media (min-width: 860px) {
+        display: flex;
+        border-bottom: 2px solid #3955b6;
+        box-shadow: 0 4px 60px hsla(0, 0%, 0%, 0.08);
+
+        > * + * { margin-top: 0 }
+      }
+
+      > div {
+        background: var(--white);
+        padding: 2.1em 1.4em;
+        @mixin at Small { padding: 2.4em 3em }
+
+        border-bottom: 2px solid #3955b6;
+        box-shadow: 0 4px 60px hsla(0, 0%, 0%, 0.08);
+
+        @media (min-width: 860px) { 
+          width: 50%;
+          border-bottom: 0;
+          box-shadow: none;
+        }
+
+        .page-section__title {
+          @mixin font-size 2;
+          @mixin at Small { @mixin font-size 3.6 }
+        }
+      }
+    }
+    
+    .partners {
+      
+      @media (min-width: 860px) { border-right: 1px solid #3955b6 }
+  
+      .carousel {
+        &__wrapper {
+          display: flex;
+          align-items: center;
+        }
+
+        &__button {
+          button {
+            width: 32px; height: 32px;
+            @mixin at Small { width: 38px; height: 38px }
+            
+            border: 1px solid #eee;
+            transform: rotate(45deg);
+            box-shadow: 0 0 5px hsla(0, 0%, 0%, .04);
+            transition: all 200ms ease-in-out, transform 0ms ease;
+            cursor: pointer;
+            position: relative;
+            z-index: 2;
+
+            &:focus, &:hover {
+              outline: none;
+              border-color: #ccc;
+              box-shadow: 5px 5px 5px hsla(227, 72%, 39%, .1);
+            }
+
+            &.is-disabled {
+              pointer-events: none;
+              opacity: .5;
+
+              svg { fill: #999 }
+              
+              &:focus, &:hover { box-shadow: none; border-color: #eee; }
+            }
+
+            svg {
+              transform: rotate(-45deg) translateX(-1px);
+              fill: #1c3aaa;
+            }
+          }
+
+          &.carousel__button--next button:active { transform: rotate(45deg) translateX(2px) }
+          &.carousel__button--prev button:active { transform: rotate(45deg) translateX(-2px) }
+
+        }
+      
+        &__track-outer {
+          position: relative;
+          overflow: hidden;
+
+          &::before, &::after {
+            content: "";
+            display: block;
+            width: 8rem; @mixin at xSmall { width: 4rem }
+            height: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 1;
+          }
+
+          &::before{
+            right: 0;
+            background: linear-gradient(to right, transparent, #fff 80%);
+          }
+          &::after{
+            left: 0;
+            background: linear-gradient(to left, transparent, #fff 80%);
+          }
+        }
+
+        &__track {
+          display: flex;
+          overflow-x: auto;
+          transition: transform 600ms cubic-bezier(1, 0.01, 0.25, 0.88);
+        }
+      
+        &__slide {
+          flex: 0 0 100%;
+          transition: opacity 1000ms cubic-bezier(1, 0.01, 0.25, 0.88);
+          opacity: 0;
+
+          span {
+            font-family: var(--secondary-font);
+            color: #1c3aaa;
+            @mixin font-size 1.8;
+            width: 164px;
+            line-height: 1.2;
+            margin-inline: auto;
+
+            @mixin at Small { 
+              @mixin font-size 2.5;
+              width: 202px;
+              line-height: 1.3;
+            }
+          }
+
+          &.current-slide {
+            opacity: 1;
+          }
+        }
+        
+        &__navigation {
+          margin-top: 3rem;
+          @mixin at Small { margin-top: 4.2rem }
+
+          li {
+            height: 4px; width: 4px;
+            background: #ebebeb;
+            display: inline-block;
+            cursor: pointer;
+            transition: all 300ms ease-in-out;
+
+            + * { margin-left: .9rem }
+
+            &.current-slide { background: #1c3aaa }
+
+            &.current-slide, &:hover { transform: scale(1.5) }
+          }
+        }
+      }
+      
+    }
+  
+    .subscribe  {
+      input[type="email"] {
+          width: 100%;
+          height: 4.7rem;
+          line-height: 4.4rem;
+          @mixin at Small { width: 70%; }
+          margin-inline: auto;
+          padding-inline: 2em;
+          border: 1px solid #f1f1f1;
+          border-bottom: 2px solid #3955b6;
+          margin-bottom: 1.8rem;
+          font-size: 13px;
+          text-align: center;
+          letter-spacing: .02em;
+          transition: all 300ms ease-in-out;
+          color: #081448;
+  
+          &:focus {
+            outline: none;
+            box-shadow: 0 4px 10px hsla(227, 52%, 47%, .12);
+            border: 1px solid #ddd;
+            border-bottom: 2px solid #3955b6;
+          }
+          
+          &::placeholder {
+            color: #b9babe;
+          }
+      }
+  
+      button[type="submit"] {
+        @mixin font-size 1.2;
+        display: inline-flex;
+        align-items: center;
+        transition: all 200ms ease-in-out;
+        
+        svg {
+          fill: hsla(228, 4%, 70%, 1);
+          margin-left: 1rem;
+        }
+      }
+    }
+  }
+}
+

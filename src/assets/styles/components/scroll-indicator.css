@@ -1,0 +1,15 @@
+.scroll-indicator {
+  width: 0; height: 2px;
+  position: absolute;
+  bottom: 0; left: 0;
+  background: #dadada;
+  opacity: 0;
+  transition: opacity 300ms ease-in-out, width 2000ms ease-in-out;
+  
+  &__percentage-bar {
+    width: 0;
+    height: inherit;
+    background: #000139;
+    transition: width 300ms ease;
+  }
+}
